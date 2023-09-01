@@ -1,0 +1,61 @@
+.demo_info {
+    color: #176F6A;
+    margin:0;
+}
+
+#site-title{
+    font-weight: bold;
+}
+
+.panel{
+    background-color:rgba(234,248,249,0.85);
+    
+}
+
+
+@media (min-width:768px){
+    .panel{
+        border-radius: 10px;
+        border:1px solid #a63a24;
+    }
+
+    .panel-title{
+        border-radius: 7px 7px 0 0;
+        border:1px solid #a63a24;
+    }
+}
+
+body{
+    background: url("../images/nyc_bg.jpg");
+    background-size: cover;
+    backdrop-filter: blur(2px);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height:100vh;
+}
+
+.panel-title {
+    background-color:#a63a24;
+    color:white;
+}
+
+select{
+    width:100%
+}
+
+/* #photo-credit{
+    background-color:rgba(234,248,249,0.65);
+    position:fixed;
+    font-size:small;
+    font-weight:bold;
+    padding:0 5px;
+    bottom:0;
+    right:0;
+}
+*/
+footer{
+    background-color:rgba(234,248,249,0.65);
+}
+
+.grow{
+    flex-grow: 1;
+}

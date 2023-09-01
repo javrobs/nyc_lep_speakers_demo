@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NYC Limited English Proficiency Speakers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css" /> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin=""/>
+  </head>
+  <body class="d-flex flex-column justify-content-between">
+    <div class="container-md">
+      <div class="row py-md-3" id="title-box">
+        <div class="col-md-12 p-3 panel text-center">
+          <h1 id="site-title">New York City<br>Limited English Proficiency Speakers</h1>
+          <p class="m-0">Use the interactive charts below to explore the dataset</p>
+        </div>
+      </div>
+      <div class="row d-flex flex-row" id="content-box">
+        <div class="col-md-5" id="left">
+          <div class="row pe-md-2">
+            <div class="col-12 panel px-0">
+              <h6 class="p-2 my-0 panel-title">Language:</h5>
+              <div class="p-1">
+                <select id="selDataset" onchange="optionChanged(this.value,false,false)"></select>
+              </div>
+            </div>
+            <div class="col-12 panel px-0 mt-md-3">
+              <h6 class="p-2 my-0 panel-title">Demographic Information:</h5>
+              <div class="p-1" id="metadata"></div>
+              <div class="p-1" id="bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 d-flex flex-column" id="right">
+          <div class="row ps-md-2 d-flex flex-column grow">
+            <div class="col-12 panel px-0 grow">
+              <h6 class="p-2 panel-title my-0">Sunburst Chart:</h5>
+              <div class="p-1" id="chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <footer class="container-fluid text-center">
+        <div class="row py-2">
+          <div class="col-6">
+            Forked by: Javier Robles Samar<br>
+            <a href="mailto:javieroblesamar@gmail.com">javieroblesamar@gmail.com</a>
+          </div>
+          <div class="col-6" id="photo-credit">
+            Photo from: <a href="https://unsplash.com/es/fotos/LGtJ44QWo_c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> | By <a href="https://unsplash.com/pt-br/@kaip?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kai Pilger</a> 
+          </div>
+        </div>
+    </footer>
+  </body>
+  
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+      integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+      crossorigin=""></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="static/js/map.js"></script>
+  <script src="static/js/demoBox.js"></script>
+  <script src="static/js/sunburst.js"></script>
+  <script src="static/js/dropDownMenu.js"></script>
+  <script src="static/js/barChart.js"></script>
+  <script src="static/js/choropleth.js"></script>
+</html>
