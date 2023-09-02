@@ -74,7 +74,7 @@ function horizontalBar(passedData,filtered,language) {
 
     };
 
-    Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false});
+    Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false,scrollZoom: false});
     if(barResizeListener===false){
         window.addEventListener("resize",resizeBar);
       }
