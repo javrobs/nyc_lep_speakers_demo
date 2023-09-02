@@ -2,50 +2,26 @@ const sunburstDiv=document.querySelector("#sunburst");
 var sunburstResizeListener=false;
 
 function sunburstFilter(language){
-
-  // Query API for specific language
-  // d3.json(`http://127.0.0.1:5000/populations/${language}`).then((data)=>{
-
-    //Show data length in console. Should match total slices displayed
     console.log(alldata.length);
-
-    //Call on sunburst update function (true means data is filtered by language)
     updateSunburst(SunburstArrays(alldata,false));
-
 };
 
 function SunburstArrays(data,filtered) {
   // Create lists for storing slices of sunburst
-
-  // Referenced by parent array. Ids must be unique to each element (level 1, level 2, level 3)
-  // e.g. "id_Manhattan" (for L1), "101" (for L2) or "101-Spanish" (for L3)
   let ids=[];
-
-  // text that will be written in each slice field
-  // e.g. "Manhattan" (for L1), "Battery Park City, Tribeca" (for L2) or "Spanish" (for L3)
   let labels=[];
-
-  // array of parents of each element. 
-  // e.g. "NYC LEP Speakers" (for L1, referencing L0), "id_Manhattan" (for L2, referencing L1) or "101" (for L3, referencing L2)
   let parents=[];
-
-  // numerical value of element. parent elements must add up to child element's sum.
-  // e.g. 227828 (for L1, Manhattan), 3136 (for L2, Battery Park City, Tribeca) or 304 (For L3, Spanish)
   let values=[];
 
   // Go row by row through data to populate lists, level by level:
   data.forEach(row =>  {
-
     //Level 1: Boroughs
     //If borough not in ids variable
     if (!ids.includes(`id_${row["Borough"]}`)){
-
       //To ID push ID_<boroughName>
       ids.push(`id_${row["Borough"]}`);
-
       //To label push borough name only
       labels.push(row["Borough"]);
-
       //If function argument for filtered is true, write down language filtered as a L0 Parent. Otherwise L0 parent is NYC
       if (filtered===true){
         parents.push(`${row["Language"]} LEP in NYC`);
@@ -117,16 +93,16 @@ function updateSunburst([ids,labels,parents,values]) {
       values:values,
       textposition: 'inside',
       insidetextorientation: 'radial',
-      textfont:{size:12,color:"black"}
+      textfont:{size:14,color:"black"}
     }
   ];
-
+  let sunburstHeight=(window.innerWidth>768)?sunburstDiv.offsetHeight-30:sunburstDiv.offsetWidth-30;
   // 
   var layout = {
     // Settings for layout of sunburst
     margin: {l:0,r:0,t:0,b:0},
     paper_bgcolor: "rgba(255, 255, 255, 0)",
-    height:sunburstDiv.offsetHeight-30,
+    height:sunburstHeight,
     width:sunburstDiv.offsetWidth-30,
     // Colors obtained
     // sunburstcolorway:["#D67616","#62AA9F","#176F6A","#AD3A00","#7A2F1E"]
@@ -142,7 +118,7 @@ function updateSunburst([ids,labels,parents,values]) {
 
 function resizeSunburst(){
   console.log("listening for resize");
-  let newHeight=sunburstDiv.offsetHeight-30;
+  let newHeight=(window.innerWidth>768)?sunburstDiv.offsetHeight-30:sunburstDiv.offsetWidth-30;
   let newWidth=sunburstDiv.offsetWidth-30;
   Plotly.update('sunburst',{},{height:newHeight,width:newWidth});
 }

@@ -22,6 +22,12 @@
     }
 }
 
+@media (max-width:767px){    
+    #content-box{
+        align-content: flex-start;
+    }
+}
+
 body{
     background: url("../images/nyc_bg.jpg");
     background-size: cover;
@@ -58,6 +64,7 @@ footer{
 .grow{
     flex-grow: 1;
 }
+
 
 #sunburst{
     min-height:350px;
