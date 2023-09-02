@@ -28,6 +28,7 @@ body{
     backdrop-filter: blur(2px);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height:100vh;
+    min-height:100dvh;
 }
 
 .panel-title {
@@ -56,4 +57,13 @@ footer{
 
 .grow{
     flex-grow: 1;
+}
+
+#sunburst{
+    min-height:350px;
+}
+
+#sunburst div{
+    margin:0 !important;
+    padding:0 !important;
 }

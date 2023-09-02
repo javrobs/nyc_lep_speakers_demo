@@ -13,14 +13,14 @@
       crossorigin=""/>
   </head>
   <body class="d-flex flex-column justify-content-between">
-    <div class="container-md">
+    <div class="container-md grow d-flex flex-column">
       <div class="row py-md-3">
         <div class="col-12 p-3 panel text-center">
           <h1 id="site-title">New York City<br>Limited English Proficiency Speakers</h1>
           <p class="m-0">Use the interactive chart below to explore the dataset</p>
         </div>
       </div>
-      <div class="row d-flex flex-row" id="content-box">
+      <div class="row d-flex flex-row grow" id="content-box">
         <div class="col-md-5 mb-md-3" id="left">
           <div class="row pe-md-2">
             <div class="col-12 panel px-0">
@@ -40,9 +40,9 @@
         </div>
         <div class="col-md-7 mb-3 d-flex flex-column" id="right">
           <div class="row ps-md-2 d-flex flex-column grow">
-            <div class="col-12 panel px-0 grow">
+            <div class="col-12 panel px-0 grow d-flex flex-column">
               <h6 class="p-2 panel-title my-0">Sunburst Chart:</h5>
-              <div class="p-1" id="sunburst"></div>
+              <div class="p-2 grow d-flex align-items-center justify-content-center" id="sunburst"></div>
             </div>
           </div>
         </div>
@@ -65,11 +65,9 @@
   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
       integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
       crossorigin=""></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="static/js/dropDownMenu.js"></script>
   <script src="static/js/demoBox.js"></script>
   <script src="static/js/sunburst.js"></script>
   <script src="static/js/barChart.js"></script>
-  <script src="static/js/choropleth.js"></script>
 </html>

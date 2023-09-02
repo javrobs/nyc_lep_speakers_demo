@@ -1,3 +1,6 @@
+const sunburstDiv=document.querySelector("#sunburst");
+var sunburstResizeListener=false;
+
 function sunburstFilter(language){
 
   // Query API for specific language
@@ -7,7 +10,7 @@ function sunburstFilter(language){
     console.log(alldata.length);
 
     //Call on sunburst update function (true means data is filtered by language)
-    updateSunburst(SunburstArrays(alldata,true));
+    updateSunburst(SunburstArrays(alldata,false));
 
 };
 
@@ -92,13 +95,14 @@ function SunburstArrays(data,filtered) {
     //Add up values for community district sum by searching index in IDS with Community District Code, row by row.
     values[ids.indexOf(row["Borough Community District Code"])]+=row["LEP Population (Estimate)"];
   })
+  console.log([ids,labels,parents,values]);
   return [ids,labels,parents,values];
 }
 
 
 
 function updateSunburst([ids,labels,parents,values]) {
-  // console.log(labels)
+  console.log(labels)
   var trace = [
     {
       // Settings for sunburst content
@@ -120,9 +124,10 @@ function updateSunburst([ids,labels,parents,values]) {
   // 
   var layout = {
     // Settings for layout of sunburst
-    margin: {l:30,r:30,t:30,b:30},
+    margin: {l:0,r:0,t:0,b:0},
     paper_bgcolor: "rgba(255, 255, 255, 0)",
-    autosize:true,
+    height:sunburstDiv.offsetHeight-30,
+    width:sunburstDiv.offsetWidth-30,
     // Colors obtained
     // sunburstcolorway:["#D67616","#62AA9F","#176F6A","#AD3A00","#7A2F1E"]
     //Corrected color palette for readability
@@ -130,4 +135,14 @@ function updateSunburst([ids,labels,parents,values]) {
   };
 
   Plotly.newPlot('sunburst', trace, layout);
+  if(sunburstResizeListener===false){
+    window.addEventListener("resize",resizeSunburst);
+  }
+}
+
+function resizeSunburst(){
+  console.log("listening for resize");
+  let newHeight=sunburstDiv.offsetHeight-30;
+  let newWidth=sunburstDiv.offsetWidth-30;
+  Plotly.update('sunburst',{},{height:newHeight,width:newWidth});
 }
