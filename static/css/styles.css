@@ -9,19 +9,16 @@
 
 .panel{
     background-color:rgba(234,248,249,0.85);
-    
 }
-
 
 @media (min-width:768px){
     .panel{
         border-radius: 10px;
-        border:1px solid #a63a24;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.85);
     }
 
     .panel-title{
         border-radius: 7px 7px 0 0;
-        border:1px solid #a63a24;
     }
 }
 
@@ -34,7 +31,8 @@ body{
 }
 
 .panel-title {
-    background-color:#a63a24;
+    background-color:#a9431e;
+    /* background-color:#17b2bd ; */
     color:white;
 }
 
@@ -53,7 +51,7 @@ select{
 }
 */
 footer{
-    background-color:rgba(234,248,249,0.65);
+    background-color:rgba(234,248,249,0.85);
 }
 
 .grow{
