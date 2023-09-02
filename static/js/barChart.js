@@ -69,12 +69,14 @@ function horizontalBar(passedData,filtered,language) {
         margin: { t: 30, l: 150 ,b:20,r:0},
         height: barHeight,
         width: barDiv.offsetWidth-30,
+        yaxis: {fixedrange: true},
+        xaxis : {fixedrange: true},
         paper_bgcolor: "rgba(255, 255, 255, 0)",
         plot_bgcolor:"rgba(255, 255, 255, 0)",
 
     };
 
-    Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false,scrollZoom: false});
+    Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false});
     if(barResizeListener===false){
         window.addEventListener("resize",resizeBar);
       }
