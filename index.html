@@ -26,7 +26,9 @@
             <div class="col-12 panel px-0">
               <h6 class="p-2 my-0 panel-title">Language:</h5>
               <div class="p-1">
-                <select id="selDataset" onchange="optionChanged(this.value,false,false)"></select>
+                <select id="language-select">
+                  <option value="">All</option>
+                </select>
               </div>
             </div>
             <div class="col-12 panel px-0 mt-md-3">
@@ -40,7 +42,7 @@
           <div class="row ps-md-2 d-flex flex-column grow">
             <div class="col-12 panel px-0 grow">
               <h6 class="p-2 panel-title my-0">Sunburst Chart:</h5>
-              <div class="p-1" id="chart"></div>
+              <div class="p-1" id="sunburst"></div>
             </div>
           </div>
         </div>
@@ -65,10 +67,9 @@
       crossorigin=""></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="static/js/map.js"></script>
+  <script src="static/js/dropDownMenu.js"></script>
   <script src="static/js/demoBox.js"></script>
   <script src="static/js/sunburst.js"></script>
-  <script src="static/js/dropDownMenu.js"></script>
   <script src="static/js/barChart.js"></script>
   <script src="static/js/choropleth.js"></script>
 </html>

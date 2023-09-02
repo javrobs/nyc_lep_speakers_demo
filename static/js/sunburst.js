@@ -1,31 +1,15 @@
-function allLanguages(){
-  
-  // Query API for all languages
-  d3.json("http://127.0.0.1:5000/populations_all").then((data)=>{
-    
-    //Show data length in console. Should match total slices displayed
-    // console.log(data.length);
-    
-    //Call on sunburst update function (false means data isnt filtered by language)
-    updateSunburst(SunburstArrays(data,false));
-
-  });
-}
-
-
 function sunburstFilter(language){
 
   // Query API for specific language
-  d3.json(`http://127.0.0.1:5000/populations/${language}`).then((data)=>{
+  // d3.json(`http://127.0.0.1:5000/populations/${language}`).then((data)=>{
 
     //Show data length in console. Should match total slices displayed
-    console.log(data.length);
+    console.log(alldata.length);
 
     //Call on sunburst update function (true means data is filtered by language)
-    updateSunburst(SunburstArrays(data,true));
+    updateSunburst(SunburstArrays(alldata,true));
 
-  });
-}
+};
 
 function SunburstArrays(data,filtered) {
   // Create lists for storing slices of sunburst
@@ -145,5 +129,5 @@ function updateSunburst([ids,labels,parents,values]) {
     sunburstcolorway:["d67616","62aa9f","1c8782","c7531a","a63a24"]
   };
 
-  Plotly.newPlot('content', trace, layout);
+  Plotly.newPlot('sunburst', trace, layout);
 }
