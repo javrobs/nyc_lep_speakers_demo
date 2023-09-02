@@ -27,37 +27,17 @@ function setUp(){
 }
 
 function loadGraphs(){
-    let subjectLanguage=languageSelect.value;
-    demoBox(subjectLanguage);
-    horizontalBar(subjectLanguage);
-    sunburstFilter(subjectLanguage);
+    selectedLanguage=languageSelect.value
+    if (selectedLanguage==="All"){
+        demoBox(alldata,false,selectedLanguage);
+        horizontalBar(alldata,false,selectedLanguage);
+        updateSunburst(SunburstArrays(alldata,false));
+    } else {
+        filteredData=alldata.filter(row=>{return (row["Language"]===selectedLanguage)})
+        console.log(filteredData);
+        demoBox(filteredData,true,selectedLanguage);
+        horizontalBar(filteredData,true,selectedLanguage);
+        updateSunburst(SunburstArrays(filteredData,true));
+    }
 }
-
-//     demoBox();
-//     horizontalBar(subjectLanguage);
-//     content=d3.selectAll('input:checked').property("value");
-//     if (content=="map"){
-//         console.log("content is set to map");
-//         updateMap(subjectLanguage,initialize);
-//     }
-//     if (content=="sunburst"){
-//         if(contentChanged){
-//         myMap.remove()
-//         }
-//         if (subjectLanguage==="All"){
-//                 allLanguages();
-//             }
-//             else {
-//                 sunburstFilter(subjectLanguage);
-//             }
-//     }
-    
-// }
-
-// function contentSelect(){
-//     console.log("contentSelect function was initialized")
-//     language=d3.select('select').property("value");
-//     d3.select('#content').html("").attr("class","panel");
-//     optionChanged(language,true,true)
-// }
 

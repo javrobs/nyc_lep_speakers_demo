@@ -1,11 +1,6 @@
 const sunburstDiv=document.querySelector("#sunburst");
 var sunburstResizeListener=false;
 
-function sunburstFilter(language){
-    console.log(alldata.length);
-    updateSunburst(SunburstArrays(alldata,false));
-};
-
 function SunburstArrays(data,filtered) {
   // Create lists for storing slices of sunburst
   let ids=[];
@@ -71,14 +66,12 @@ function SunburstArrays(data,filtered) {
     //Add up values for community district sum by searching index in IDS with Community District Code, row by row.
     values[ids.indexOf(row["Borough Community District Code"])]+=row["LEP Population (Estimate)"];
   })
-  console.log([ids,labels,parents,values]);
   return [ids,labels,parents,values];
 }
 
 
 
 function updateSunburst([ids,labels,parents,values]) {
-  console.log(labels)
   var trace = [
     {
       // Settings for sunburst content
@@ -117,7 +110,7 @@ function updateSunburst([ids,labels,parents,values]) {
 }
 
 function resizeSunburst(){
-  console.log("listening for resize");
+  console.log("listening for resize (sunburst)");
   let newHeight=(window.innerWidth>768)?sunburstDiv.offsetHeight-30:sunburstDiv.offsetWidth-30;
   let newWidth=sunburstDiv.offsetWidth-30;
   Plotly.update('sunburst',{},{height:newHeight,width:newWidth});

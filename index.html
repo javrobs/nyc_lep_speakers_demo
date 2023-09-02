@@ -21,24 +21,29 @@
         </div>
       </div>
       <div class="row d-flex flex-row grow" id="content-box">
-        <div class="col-md-3 col-lg-4 col-xl-5 mb-md-3" id="left">
-          <div class="row pe-md-2">
+        <div class="col-md-3 col-lg-4 col-xl-5 mb-md-3 d-flex flex-column" id="left">
+          <div class="row pe-md-2 grow d-flex flex-column">
             <div class="col-12 panel px-0">
               <h6 class="p-2 my-0 panel-title">Language:</h5>
-              <div class="p-1">
+              <div class="p-2">
                 <select id="language-select">
-                  <option value="">All</option>
+                  <option value="All">All</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 panel px-0 mt-md-3">
+            <div class="col-12 panel px-0 mt-md-3 grow d-flex flex-column">
               <h6 class="p-2 my-0 panel-title">Demographic Information:</h5>
-              <div class="p-1" id="metadata"></div>
-              <div class="p-1" id="bar"></div>
+              <div class="p-2" id="metadata">
+                <h6>Language:</h6>
+                <span id="language-placeholder">Hello</span>
+                <h6>Total LEP population:</h6>
+                <span id="lep-population-placeholder">Baibai</span>
+              </div>
+              <div class="p-2 grow" id="bar"></div>
             </div>
           </div>
         </div>
-        <div class="col-md-9 col-lg-8 col-xl-7 mb-3 d-flex flex-column grow" id="right">
+        <div class="col-md-9 col-lg-8 col-xl-7 mb-3 d-flex flex-column" id="right">
           <div class="row ps-md-2 d-flex flex-column grow">
             <div class="col-12 panel px-0 grow d-flex flex-column">
               <h6 class="p-2 panel-title my-0">Sunburst Chart:</h5>
