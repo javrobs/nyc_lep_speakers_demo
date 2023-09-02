@@ -74,7 +74,7 @@ function horizontalBar(passedData,filtered,language) {
 
     };
 
-    Plotly.newPlot("bar" , barData , barLayout);
+    Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false});
     if(barResizeListener===false){
         window.addEventListener("resize",resizeBar);
       }
@@ -84,5 +84,5 @@ function resizeBar(){
     console.log("listening for resize (bar)");
     let newHeight=(window.innerWidth>768)?barDiv.offsetHeight-40:300;
     let newWidth=barDiv.offsetWidth-30;
-    Plotly.update('bar',{},{height:newHeight,width:newWidth});
+    Plotly.update('bar',{},{height:newHeight,width:newWidth},{});
   }
