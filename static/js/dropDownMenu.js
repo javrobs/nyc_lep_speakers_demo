@@ -21,22 +21,28 @@ function setUp(){
             newOption.innerHTML=row;
             languageSelect.appendChild(newOption);
         });
-        languageSelect.addEventListener("change",loadGraphs);
+        languageSelect.addEventListener("change",()=>loadGraphs);
         window.addEventListener("resize",()=>{
-            let doit;
-            console.log("resizing");
-            clearTimeout(doit);
-            doit = setTimeout(loadGraphs, 100);
+            if (window.innerWidth>768){
+                let doit;
+                console.log("resizing");
+                clearTimeout(doit);
+                doit = setTimeout(loadGraphs, 100);
+            } else {
+                loadGraphs(false);
+            };
         });
         // window.addEventListener("resize",loadGraphs);
         loadGraphs();
     });
 }
 
-function loadGraphs(){
-    Plotly.purge('bar');
-    Plotly.purge('sunburst');
-    selectedLanguage=languageSelect.value
+function loadGraphs(purge=true){
+    if (purge){
+        Plotly.purge('bar');
+        Plotly.purge('sunburst');
+    };
+    selectedLanguage=languageSelect.value;
     if (selectedLanguage==="All"){
         demoBox(alldata,false,selectedLanguage);
         horizontalBar(alldata,false,selectedLanguage);
