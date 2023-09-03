@@ -1,23 +1,22 @@
-const metadataDiv=document.querySelector("#metadata");
+const languageMetadata=document.querySelector("#language-placeholder");
+const populationMetadata=document.querySelector("#lep-population-placeholder");
+const percentageMetadata=document.querySelector("#percentage-placeholder");
+const percentageHeader=document.querySelector("#percentage-header");
 
 function demoBox(passedData,filtered,language){
-    // metadataDiv.innerHTML='';
     let thisLEP=passedData.reduce((sum,one)=> sum + one["LEP Population (Estimate)"],0);
+    languageMetadata.innerHTML=language;
+    populationMetadata.innerHTML=thisLEP.toLocaleString("en-EN");
     if (filtered){
         let allLEP=alldata.reduce((sum,one)=> sum + one["LEP Population (Estimate)"],0);
-        let percentageOfLEP="%"+String(Math.floor(thisLEP/allLEP*100*100000)/100000)
+        let percentageOfLEP=String(Math.floor(thisLEP/allLEP*100*100000)/100000)+"%";
         console.log(percentageOfLEP,allLEP,thisLEP,language);
+        percentageHeader.classList.remove("d-none");
+        percentageMetadata.classList.remove("d-none");
+        percentageMetadata.innerHTML=percentageOfLEP;
     } else {
         console.log(thisLEP,language);
-    }
-    // panel.append('h5').classed("demo_header",true).text(`Language:`);
-    // panel.append('h5').classed("demo_info",true).text(`${data["Language"]}`);
-    // panel.append('h5').classed("demo_header",true).text(`Limited English Proficiency (LEP) Speakers:`);
-    // panel.append('h5').classed("demo_info",true).text(`${data["Total LEP population"].toLocaleString("en-US")}`);
-    // if (Object.keys(data).includes("LEP Percentage")){
-    //     panel.append('h5').classed("demo_header",true).text(`% of all LEP Speakers:`);
-    //     panel.append('h5').classed("demo_info",true).text(`${data["LEP Percentage"]}`);
-        
-    // }           
-    
+        percentageHeader.classList.add("d-none");
+        percentageMetadata.classList.add("d-none");
+    } 
 }

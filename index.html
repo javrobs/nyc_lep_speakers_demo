@@ -7,24 +7,22 @@
     <link rel="icon" type="image/x-icon" href="static/images/icon.png">
     <title>NYC Limited English Proficiency Speakers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css" /> 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-      crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css" />
   </head>
   <body class="d-flex flex-column justify-content-between">
     <div class="container-md grow d-flex flex-column">
       <div class="row py-md-3">
         <div class="col-12 p-3 panel text-center">
-          <h1 id="site-title">New York City<br>Limited English Proficiency Speakers</h1>
-          <p class="m-0">Use the interactive chart below to explore the dataset</p>
+          <h1 class="m-0">New York City</h1>
+          <h2 class="m-0 teal">Limited English Proficiency Speakers</h2>
         </div>
       </div>
       <div class="row d-flex flex-row grow" id="content-box">
-        <div class="col-md-3 col-lg-4 col-xl-5 mb-md-3 d-flex flex-column" id="left">
-          <div class="row pe-md-2 grow d-flex flex-column">
+        <div class="col-lg-4 col-xl-5 mb-md-3 d-flex flex-column" id="left">
+          <div class="row pe-lg-2 grow d-flex flex-column">
             <div class="col-12 panel px-0">
-              <h6 class="p-2 my-0 panel-title">Language:</h5>
+              <h6 class="p-2 my-0 panel-title">Select a language</h5>
               <div class="p-2">
                 <select id="language-select">
                   <option value="All">All</option>
@@ -32,21 +30,23 @@
               </div>
             </div>
             <div class="col-12 panel px-0 mt-md-3 grow d-flex flex-column">
-              <h6 class="p-2 my-0 panel-title">Demographic Information:</h5>
-              <div class="p-2" id="metadata">
-                <h6>Language:</h6>
-                <span id="language-placeholder">Hello</span>
-                <h6>Total LEP population:</h6>
-                <span id="lep-population-placeholder">Baibai</span>
+              <h6 class="p-2 my-0 panel-title">Demographic Information</h5>
+              <div class="p-2 pb-0" id="metadata">
+                <h6 class="m-0">Language:</h6>
+                <p id="language-placeholder" class="demo-info"></p>
+                <h6 class="m-0" id="lep-population-header">Total LEP population:</h6>
+                <p id="lep-population-placeholder" class="demo-info">Baibai</p>
+                <h6 class="m-0 d-none" id="percentage-header">Percentage of all LEP Speakers:</h6>
+                <p id="percentage-placeholder" class="demo-info d-none">Hello again</p>
               </div>
-              <div class="p-2 grow" id="bar"></div>
+              <div class="p-2 grow d-flex align-items-center justify-content-center" id="bar"></div>
             </div>
           </div>
         </div>
-        <div class="col-md-9 col-lg-8 col-xl-7 mb-3 d-flex flex-column" id="right">
-          <div class="row ps-md-2 d-flex flex-column grow">
+        <div class="col-lg-8 col-xl-7 mb-3 d-flex flex-column" id="right">
+          <div class="row ps-lg-2 d-flex flex-column grow">
             <div class="col-12 panel px-0 grow d-flex flex-column">
-              <h6 class="p-2 panel-title my-0">Sunburst Chart:</h5>
+              <h6 class="p-2 panel-title my-0">Sunburst Chart</h5>
               <div class="p-2 grow d-flex align-items-center justify-content-center" id="sunburst"></div>
             </div>
           </div>
@@ -55,15 +55,27 @@
       
     </div>
     <footer class="container-fluid text-center">
+      <div class="container-md">
         <div class="row py-2">
-          <div class="col-6">
-            Forked by: Javier Robles Samar<br>
-            <a href="mailto:javieroblesamar@gmail.com">javieroblesamar@gmail.com</a>
-          </div>
-          <div class="col-6" id="photo-credit">
-            Photo from: <a href="https://unsplash.com/es/fotos/LGtJ44QWo_c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> | By <a href="https://unsplash.com/pt-br/@kaip?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kai Pilger</a> 
+          <div class="col-12 d-flex flex-column flex-md-row justify-content-evenly" id="footer-flex">
+            <div class="d-flex justify-content-center align-items-center">
+              <img src="static/images/icon.png" height="90">
+            </div>
+            <div class="d-flex flex-column">
+              <h6 class="m-0 p-1">Contact</h6>
+              <span><i class="bi bi-github pe-2"></i>Github: <a href="https://github.com/javrobs" target="_blank">/javrobs</a></span>
+              <span><i class="bi bi-envelope pe-2"></i>Email: <a href="mailto:javieroblesamar@gmail.com" target="_blank">javieroblesamar@gmail.com</a></span>
+              <span><i class="bi bi-linkedin pe-2"></i>LinkedIn: <a href="https://www.linkedin.com/in/javier-robles-samar/" target="_blank">/javier-robles-samar</a></span>
+            </div>
+            <div class="d-flex flex-column">
+              <h6 class="m-0 p-1">Sources</h6>
+              <span><i class="bi bi-diagram-2 pe-2"></i>Forked from project: <a href="https://github.com/javrobs/nyc_lep_speakers" target="_blank">NYC LEP speakers</a></span>
+              <span><i class="bi bi-file-earmark-bar-graph pe-2"></i>Data from: <a href="https://data.cityofnewyork.us/City-Government/Population-and-Languages-of-the-Limited-English-Pr/ajin-gkbp" target="_blank">NYC Open Data</a></span>
+              <span><i class="bi bi-image pe-2"></i>Background from: <a href="https://unsplash.com/es/fotos/LGtJ44QWo_c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a> | By <a href="https://unsplash.com/pt-br/@kaip?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kai Pilger</a></span>
+              </div>
           </div>
         </div>
+      </div>
     </footer>
   </body>
   

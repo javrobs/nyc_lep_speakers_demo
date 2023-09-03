@@ -21,12 +21,21 @@ function setUp(){
             newOption.innerHTML=row;
             languageSelect.appendChild(newOption);
         });
-        languageSelect.addEventListener("change",loadGraphs)
+        languageSelect.addEventListener("change",loadGraphs);
+        window.addEventListener("resize",()=>{
+            let doit;
+            console.log("resizing");
+            clearTimeout(doit);
+            doit = setTimeout(loadGraphs, 100);
+        });
+        // window.addEventListener("resize",loadGraphs);
         loadGraphs();
     });
 }
 
 function loadGraphs(){
+    Plotly.purge('bar');
+    Plotly.purge('sunburst');
     selectedLanguage=languageSelect.value
     if (selectedLanguage==="All"){
         demoBox(alldata,false,selectedLanguage);
@@ -40,4 +49,5 @@ function loadGraphs(){
         updateSunburst(SunburstArrays(filteredData,true));
     }
 }
+
 

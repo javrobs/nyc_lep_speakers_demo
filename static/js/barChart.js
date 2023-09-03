@@ -8,14 +8,15 @@ function horizontalBar(passedData,filtered,language) {
             return {"Borough":line["Borough"],
                     "Community District Name":line["Community District Name"],
                     "LEP Population (Estimate)": line["LEP Population (Estimate)"]}
-        })
+        });
     } else {
         reducedData=passedData.map(line=>{
             return {"Borough":line["Borough"],
                     "Community District Name":line["Community District Name"],
                     "LEP Population (Estimate)": line["LEP Population (Estimate)"],
                     "Language":line["Language"]}
-    })}
+        });
+    }
 
     let initValue=(reducedData.length>5)?5:reducedData.length;
     let topFive=[]
@@ -62,11 +63,11 @@ function horizontalBar(passedData,filtered,language) {
             orientation: "h",
         },
     ];
-
-    let barHeight=(window.innerWidth>768)?barDiv.offsetHeight-40:300;
+    let minheight=topFive.length*40+50;
+    let barHeight=((window.innerWidth>991)&&((barDiv.offsetHeight-50)>minheight))?barDiv.offsetHeight-50:minheight;
     let barLayout = {
-        title: "Largest Community Districts",
-        margin: { t: 30, l: 150 ,b:20,r:0},
+        title: "Largest LEP communities",
+        margin: { t: 30, l: 150 ,b:20,r:10},
         height: barHeight,
         width: barDiv.offsetWidth-30,
         yaxis: {fixedrange: true},
@@ -77,14 +78,6 @@ function horizontalBar(passedData,filtered,language) {
     };
 
     Plotly.newPlot("bar" , barData , barLayout,{displayModeBar: false});
-    if(barResizeListener===false){
-        window.addEventListener("resize",resizeBar);
-      }
 }
 
-function resizeBar(){
-    console.log("listening for resize (bar)");
-    let newHeight=(window.innerWidth>768)?barDiv.offsetHeight-40:300;
-    let newWidth=barDiv.offsetWidth-30;
-    Plotly.update('bar',{},{height:newHeight,width:newWidth},{});
-  }
+

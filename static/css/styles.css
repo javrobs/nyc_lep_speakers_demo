@@ -1,9 +1,4 @@
-.demo_info {
-    color: #176F6A;
-    margin:0;
-}
-
-#site-title{
+h1{
     font-weight: bold;
 }
 
@@ -47,30 +42,23 @@ select{
     width:100%
 }
 
-/* #photo-credit{
-    background-color:rgba(234,248,249,0.65);
-    position:fixed;
-    font-size:small;
-    font-weight:bold;
-    padding:0 5px;
-    bottom:0;
-    right:0;
-}
-*/
 footer{
     background-color:rgba(234,248,249,0.85);
+    font-size: small;
 }
 
 .grow{
     flex-grow: 1;
 }
 
-
-#sunburst{
-    min-height:350px;
+.demo-info{
+    color: #176F6A;
+    margin-bottom:0.5rem;
+}
+.teal{
+    color: #176F6A;
 }
 
-#sunburst div{
-    margin:0 !important;
-    padding:0 !important;
+#footer-flex{
+    gap:5px;
 }

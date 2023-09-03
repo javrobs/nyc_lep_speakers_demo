@@ -89,29 +89,16 @@ function updateSunburst([ids,labels,parents,values]) {
       textfont:{size:14,color:"black"}
     }
   ];
-  let sunburstHeight=(window.innerWidth>768)?sunburstDiv.offsetHeight-30:sunburstDiv.offsetWidth-30;
+  let sunburstHeight=(window.innerWidth>991)?sunburstDiv.offsetHeight-40:sunburstDiv.offsetWidth-40;
   // 
   var layout = {
     // Settings for layout of sunburst
-    margin: {l:0,r:0,t:0,b:0},
+    margin: {l:10,r:10,t:10,b:10},
     paper_bgcolor: "rgba(255, 255, 255, 0)",
     height:sunburstHeight,
-    width:sunburstDiv.offsetWidth-30,
-    // Colors obtained
-    // sunburstcolorway:["#D67616","#62AA9F","#176F6A","#AD3A00","#7A2F1E"]
-    //Corrected color palette for readability
+    width:sunburstDiv.offsetWidth-40,
     sunburstcolorway:["d67616","62aa9f","1c8782","c7531a","a63a24"]
   };
 
   Plotly.newPlot('sunburst', trace, layout);
-  if(sunburstResizeListener===false){
-    window.addEventListener("resize",resizeSunburst);
-  }
-}
-
-function resizeSunburst(){
-  console.log("listening for resize (sunburst)");
-  let newHeight=(window.innerWidth>768)?sunburstDiv.offsetHeight-30:sunburstDiv.offsetWidth-30;
-  let newWidth=sunburstDiv.offsetWidth-30;
-  Plotly.update('sunburst',{},{height:newHeight,width:newWidth});
 }
