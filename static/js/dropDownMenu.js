@@ -21,7 +21,7 @@ function setUp(){
             newOption.innerHTML=row;
             languageSelect.appendChild(newOption);
         });
-        languageSelect.addEventListener("change",()=>loadGraphs);
+        languageSelect.addEventListener("change",loadGraphs);
         window.addEventListener("resize",()=>{
             if (window.innerWidth>768){
                 let doit;

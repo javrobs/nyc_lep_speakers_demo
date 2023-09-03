@@ -100,5 +100,5 @@ function updateSunburst([ids,labels,parents,values]) {
     sunburstcolorway:["d67616","62aa9f","1c8782","c7531a","a63a24"]
   };
 
-  Plotly.newPlot('sunburst', trace, layout);
+  Plotly.newPlot('sunburst', trace, layout,{displayModeBar: false});
 }
